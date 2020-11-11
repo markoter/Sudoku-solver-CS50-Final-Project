@@ -18,5 +18,3 @@ def is_empty(board):
                 print(i + " " + j)
                 return(i,j)
     return None
-
-is_empty(grid)
