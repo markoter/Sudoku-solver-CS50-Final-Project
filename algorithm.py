@@ -1,4 +1,5 @@
 import array, random, math, time
+from pandas import *
 print("***** Sudoku solver v0.1 *****")
 
 grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0], 
@@ -17,11 +18,17 @@ def is_empty(board):
     for i in range(0, len(board)):
         for j in range(0, len(board)):
             if board[i][j] == 0:
-                print(f"zero found in ({i}, {j})")
-                emptySpots[i][j] = "e"
+                # print(f"zero found in ({i}, {j})")
+                emptySpots[i][j] = "o"
             else:
                 emptySpots[i][j] = "x"
     return emptySpots
-
-sss = is_empty(grid)
-print(sss)
+def if_fits(board):
+    checkBoard = is_empty(board)
+    for i in range(0, len(checkBoard)):
+        for j in range(0, len(checkBoard)):
+            if checkBoard[i][j] == "o":
+                board[i][j] = "#" 
+    return board
+newGrid = if_fits(grid)
+print DataFrame(newGrid)
