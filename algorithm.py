@@ -1,5 +1,5 @@
 import array, random, math, time
-fiprint("*** Sudoku solver v0.1 ***")
+print("*** Sudoku solver v0.1 ***")
 
 grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0], 
          [5, 2, 0, 0, 0, 0, 0, 0, 0], 
