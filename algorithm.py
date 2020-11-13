@@ -1,5 +1,5 @@
 import array, random, math, time
-print("Sudoku solver v0.1")
+fiprint("*** Sudoku solver v0.1 ***")
 
 grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0], 
          [5, 2, 0, 0, 0, 0, 0, 0, 0], 
@@ -12,9 +12,11 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
          [0, 0, 5, 2, 0, 6, 3, 0, 0] ]
 
 def is_empty(board):
-    for i in len(board):
-        for j in len(board[0]):
+    for i in (1, len(board)):
+        for j in (1, len(board[0])):
             if board[i][j] == 0:
                 print(i + " " + j)
                 return(i,j)
     return None
+
+is_empty(grid)
