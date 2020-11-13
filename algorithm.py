@@ -13,10 +13,15 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
 
 
 def is_empty(board):
+    emptySpots = board
     for i in range(0, len(board)):
         for j in range(0, len(board)):
             if board[i][j] == 0:
                 print(f"zero found in ({i}, {j})")
-    return None
+                emptySpots[i][j] = "e"
+            else:
+                emptySpots[i][j] = "x"
+    return emptySpots
 
-is_empty(grid)
+sss = is_empty(grid)
+print(sss)
