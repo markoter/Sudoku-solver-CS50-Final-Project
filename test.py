@@ -11,15 +11,15 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
 def search(number, board, i, j):
     for k in range(0, len(board)):
         if board[k][j] == number:
-            print(f"znalazłem {number} w ({k},{j})")
+            # print(f"znalazłem {number} w ({k},{j})")
             return 1
     for l in range(0, len(board)):
         if board[i][l] == number:
-            print(f"znalazłem {number} w ({i},{l})")
+            # print(f"znalazłem {number} w ({i},{l})")
             return 1
     return 0
 
-wynik = search(1, grid, 6, 4)
+wynik = search(1, grid, 3, 0)
 
 if wynik == 1:
     print("znaleziono")

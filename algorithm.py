@@ -13,12 +13,10 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
 
 def search(number, board, i, j):
     for k in range(0, len(board)):
-        if board[k][j] = number:
-            print("znalazłem")
+        if board[k][j] == number:
             return 1
     for l in range(0, len(board)):
-        if board[i][l] = number:
-            print("znalazłem")
+        if board[i][l] == number:
             return 1
     return 0
 
