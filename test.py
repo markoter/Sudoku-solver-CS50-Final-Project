@@ -25,3 +25,6 @@ if wynik == 1:
     print("znaleziono")
 else:
     print("nie ma")
+
+
+print (grid[1][0])

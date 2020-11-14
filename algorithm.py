@@ -12,9 +12,11 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
          [0, 0, 5, 2, 0, 6, 3, 0, 0] ]
 
 def search(number, board, i, j):
+    # search vertically
     for k in range(0, len(board)):
         if board[k][j] == number:
             return 1
+    # search horizontally
     for l in range(0, len(board)):
         if board[i][l] == number:
             return 1
