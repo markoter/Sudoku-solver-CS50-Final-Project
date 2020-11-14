@@ -18,16 +18,19 @@ def is_empty(board):
         for j in range(0, len(board)):
             if board[i][j] == 0:
                 # print(f"zero found in ({i}, {j})")
-                emptySpots[i][j] = "o"
+                emptySpots[i][j] = 'o'
             else:
-                emptySpots[i][j] = "x"
+                emptySpots[i][j] = 'x'
     return emptySpots
+
 def if_fits(board):
     checkBoard = is_empty(board)
     for i in range(0, len(checkBoard)):
         for j in range(0, len(checkBoard)):
             if checkBoard[i][j] == "o":
-                board[i][j] = "#" 
+                board[i][j] = 'o'
     return board
-newGrid = if_fits(grid)
-print (newGrid)
+for row in grid:
+    print(row)
+for row in if_fits(grid):
+    print (row)
