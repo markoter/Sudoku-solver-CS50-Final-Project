@@ -32,10 +32,14 @@ def search(number, board, i, j):
 
     # search in box
     box = make_box(board, i, j)
+    for row in box:
+        print(row)
+        if number in row:
+            return "znalazłem w rowie"
     if number in box:
         return "znalazłem w boxie"
 
-    return 0
+    return "ni ma"
 
 
 # print wyniki
