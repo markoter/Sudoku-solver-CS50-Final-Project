@@ -11,6 +11,16 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 7, 4], 
          [0, 0, 5, 2, 0, 6, 3, 0, 0] ]
 
+def search(number, board, i, j):
+    for k in range(0, len(board)):
+        if board[k][j] = number:
+            print("znalazłem")
+            return 1
+    for l in range(0, len(board)):
+        if board[i][l] = number:
+            print("znalazłem")
+            return 1
+    return 0
 
 def is_empty(board):
     emptySpots = [[0 for i in range(9)] for j in range(9)]
@@ -27,10 +37,9 @@ def if_fits(board):
     emptySpots = is_empty(board)
     for i in range(0, len(emptySpots)):
         for j in range(0, len(emptySpots)):
-            if emptySpots[i][j] == "o":
-                board[i][j] = 'o'
+            if emptySpots[i][j] == 'o':
+                board[i][j] = '1'
     return board
-
 
 for row in grid:
     print(row)
