@@ -23,21 +23,27 @@ def search(number, board, i, j):
         if board[k][j] == number:
             # print(f"znalazłem {number} w ({k},{j})")
             return "znalazłem w kolumnie"
+
     # search horizontally
     for l in range(0, len(board)):
         if board[i][l] == number:
             # print(f"znalazłem {number} w ({i},{l})")
             return "znalazłem w linii"
+
     # search in box
     box = make_box(board, i, j)
     if number in box:
-        return("znalazłem w boxie")
-    
+        return "znalazłem w boxie"
+
     return 0
 
-wynik = search(1, grid, 3, 0)
+
+# print wyniki
+szukany_numer = 2
+linia = 2
+kolumna = 0
+
+wynik = search(szukany_numer, grid, linia, kolumna)
 
 print (wynik)
-
-
-print (grid[1][0])
+print (grid[linia][kolumna])
