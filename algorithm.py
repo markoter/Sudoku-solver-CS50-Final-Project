@@ -11,17 +11,33 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 7, 4], 
          [0, 0, 5, 2, 0, 6, 3, 0, 0] ]
 
+#create box for defined i and j (there should be 9 boxes)
+def make_box(board, i, j):
+    # create empty 2d list
+    box = [[None for _ in range(3)] for _ in range(3)]
+    for m in range(3):
+        for n in range(3):
+            box[m][n] = board[i + m - (i % 3)][j + n - (j % 3)]
+    return box
+
+# function to check if number already exists in line, column or box (1 if it does, 0 if not)
 def search(number, board, i, j):
-    # search vertically
+    # search vertically in column
     for k in range(0, len(board)):
         if board[k][j] == number:
             return 1
-    # search horizontally
+    # search horizontally in line
     for l in range(0, len(board)):
         if board[i][l] == number:
             return 1
+    # search in box (box is 2d list so we need to check every line one by one)
+    box = make_box(board, i, j)
+    for row in box:
+        if number in row:
+            return 1
     return 0
 
+# create list to track empty spots
 def is_empty(board):
     emptySpots = [[0 for i in range(9)] for j in range(9)]
     for i in range(0, len(board)):
@@ -33,6 +49,7 @@ def is_empty(board):
                 emptySpots[i][j] = 'x'
     return emptySpots
 
+# function that try to put number in empty spot TODO
 def if_fits(board):
     emptySpots = is_empty(board)
     for i in range(0, len(emptySpots)):
@@ -41,6 +58,7 @@ def if_fits(board):
                 board[i][j] = '1'
     return board
 
+# debug printer
 for row in grid:
     print(row)
 for row in if_fits(grid):

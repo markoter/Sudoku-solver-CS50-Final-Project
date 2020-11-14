@@ -36,7 +36,7 @@ def search(number, board, i, j):
     return "ni ma"
 
 
-# print wyniki
+# debug print wyniki
 szukany_numer = 2
 linia = 1
 kolumna = 0
