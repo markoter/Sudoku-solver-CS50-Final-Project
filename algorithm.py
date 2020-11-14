@@ -13,7 +13,7 @@ grid = [ [3, 0, 6, 5, 0, 8, 4, 0, 0],
 
 
 def is_empty(board):
-    emptySpots = [[0]*9 for _ in range(9)]
+    emptySpots = [[0 for i in range(9)] for j in range(9)]
     for i in range(0, len(board)):
         for j in range(0, len(board)):
             if board[i][j] == 0:
@@ -24,12 +24,14 @@ def is_empty(board):
     return emptySpots
 
 def if_fits(board):
-    checkBoard = is_empty(board)
-    for i in range(0, len(checkBoard)):
-        for j in range(0, len(checkBoard)):
-            if checkBoard[i][j] == "o":
+    emptySpots = is_empty(board)
+    for i in range(0, len(emptySpots)):
+        for j in range(0, len(emptySpots)):
+            if emptySpots[i][j] == "o":
                 board[i][j] = 'o'
     return board
+
+
 for row in grid:
     print(row)
 for row in if_fits(grid):
