@@ -71,13 +71,14 @@ def filler(ins, board, i, j):
 
 # function that try to put number in empty spot TODO
 def if_fits(board):
-    emptySpots = is_empty(board)
-    for i in range(0, len(emptySpots)):
-        for j in range(0, len(emptySpots)):
-            if emptySpots[i][j] == 'o':
-                board[i][j] = filler(1, board, i, j)
-            if board[i][j] == "$":
-                return board
+    emptySpots = emptyList(board)
+    for spot in emptySpots:
+        i = spot['ipos']
+        j = spot['jpos']
+        
+        board[i][j] = filler(1, board, i, j)
+        if board[i][j] == "$":
+            return board
     return board
 
 # debug printer
