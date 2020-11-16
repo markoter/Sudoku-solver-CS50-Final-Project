@@ -61,6 +61,8 @@ def emptyList(board):
 
 # recursive function that puts lowest number (1,9) that fits, if it doesnt exists it puts "$"
 def filler(ins, board, i, j):
+    if ins == 0:
+        ins = 1
     while ins < 10:
         if search(ins, board, i, j) == 0:
             return ins
@@ -76,7 +78,8 @@ def if_fits(board):
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
         j = emptySpots[index]['jpos']
-        board[i][j] = filler(1, board, i, j)
+        ins = board[i][j]
+        board[i][j] = filler(ins, board, i, j)
         if board[i][j] == "$":
             return board
         index += 1
