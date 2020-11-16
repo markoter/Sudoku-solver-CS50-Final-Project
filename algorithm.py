@@ -55,11 +55,14 @@ def if_fits(board):
     for i in range(0, len(emptySpots)):
         for j in range(0, len(emptySpots)):
             if emptySpots[i][j] == 'o':
-                board[i][j] = '1'
+                board[i][j] = 1
     return board
 
 # debug printer
+print("Original sudoku grid:")
 for row in grid:
     print(row)
+
+print("Sudoku after changes:")
 for row in if_fits(grid):
     print (row)
