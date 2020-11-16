@@ -72,16 +72,16 @@ def filler(ins, board, i, j):
     return "$"
 
 # function that try to put number in empty spot TODO
-def if_fits(board):
+def if_fits(board, index):
     emptySpots = emptyList(board)
-    index = 0
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
         j = emptySpots[index]['jpos']
         ins = board[i][j]
         board[i][j] = filler(ins, board, i, j)
         if board[i][j] == "$":
-            return board
+            index -= 1
+            return if_fits(board, index)
         index += 1
     return board
 
@@ -96,6 +96,6 @@ for row in grid:
     print(row)
 
 print("Sudoku after changes:")
-newGrid = if_fits(grid)
+newGrid = if_fits(grid, 0)
 for row in newGrid:
     print (row)
