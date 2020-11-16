@@ -49,13 +49,26 @@ def is_empty(board):
                 emptySpots[i][j] = 'x'
     return emptySpots
 
+# function puts lowest number (1,9) that fits, if it doesnt exists it puts "$" - TODO
+def filler(ins, board, i, j):
+    while ins < 99:
+        if ins > 9:
+            return "$"
+        elif search(ins, board, i, j) == 0:
+            return ins
+        else:
+            ins += 1
+            return filler(ins, board, i, j)
+
 # function that try to put number in empty spot TODO
 def if_fits(board):
     emptySpots = is_empty(board)
     for i in range(0, len(emptySpots)):
         for j in range(0, len(emptySpots)):
             if emptySpots[i][j] == 'o':
-                # FILLER TODO
+                board[i][j] = filler(1, board, i, j)
+                if board[i][j] == "$":
+                    return board
     return board
 
 # debug printer
