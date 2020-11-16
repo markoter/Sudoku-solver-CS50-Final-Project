@@ -37,7 +37,8 @@ def search(number, board, i, j):
             return 1
     return 0
 
-# create list to track empty spots
+"""
+# create new board to track empty spots
 def is_empty(board):
     emptySpots = [[0 for i in range(9)] for j in range(9)]
     for i in range(0, len(board)):
@@ -48,7 +49,8 @@ def is_empty(board):
             else:
                 emptySpots[i][j] = 'x'
     return emptySpots
-# list of dicts to track positions of empty spots to fill
+"""
+# function to track empty spots positions in list of dicts
 def emptyList(board):
     emptySpot = []
     for i in range(0, len(board)):
@@ -56,8 +58,6 @@ def emptyList(board):
             if board[i][j] == 0:
                 emptySpot.append({'ipos':i, 'jpos':j})
     return emptySpot
-
-
 
 # recursive function that puts lowest number (1,9) that fits, if it doesnt exists it puts "$"
 def filler(ins, board, i, j):
@@ -81,18 +81,8 @@ def if_fits(board):
     return board
 
 # debug printer
-print("Original sudoku grid:")
-for row in grid:
-    print(row)
-
-
-print("Sudoku after changes:")
-newGrid = if_fits(grid)
-for row in newGrid:
-    print (row)
-
 emptySpot = emptyList(grid)
-print(len(emptySpot))
+print(f"empty spots to fill: {len(emptySpot)}")
 for position in emptySpot:
     print(position)
 
@@ -100,3 +90,7 @@ print("Original sudoku grid:")
 for row in grid:
     print(row)
 
+print("Sudoku after changes:")
+newGrid = if_fits(grid)
+for row in newGrid:
+    print (row)
