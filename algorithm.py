@@ -84,8 +84,8 @@ def if_fits(board):
 # debug printer
 emptySpot = emptyList(grid)
 print(f"empty spots to fill: {len(emptySpot)}")
-for position in emptySpot:
-    print(position)
+#for position in emptySpot:
+ #  print(position)
 
 print("Original sudoku grid:")
 for row in grid:
