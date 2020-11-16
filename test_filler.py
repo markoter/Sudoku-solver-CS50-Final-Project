@@ -1,14 +1,8 @@
-def filler(board, i, j):
-    for ins in range(1,9):
-        if search(ins, board, i, j) == 0:
-            return ins
-        else:
-            return "&"
-
-def filler(ins):
-    while ins < 99:
+def filler(ins, board, i, j):
+    while ins < 10:
         if search(ins, board, i, j) == 0:
             return ins
         else:
             ins += 1
-            return filler(ins)
+            return filler(ins, board, i, j)
+    return "$"

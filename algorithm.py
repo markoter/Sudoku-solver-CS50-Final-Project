@@ -51,14 +51,13 @@ def is_empty(board):
 
 # function puts lowest number (1,9) that fits, if it doesnt exists it puts "$" - TODO
 def filler(ins, board, i, j):
-    while ins < 99:
-        if ins > 9:
-            return "$"
-        elif search(ins, board, i, j) == 0:
+    while ins < 10:
+        if search(ins, board, i, j) == 0:
             return ins
         else:
             ins += 1
             return filler(ins, board, i, j)
+    return "$"
 
 # function that try to put number in empty spot TODO
 def if_fits(board):
