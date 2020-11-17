@@ -41,6 +41,8 @@ ogrid = [
 
 
 # debug printer
+emptySpots = emptyList(grid)
+
 emptySpot = f1.emptyList(grid)
 print(f"empty spots to fill: {len(emptySpot)}")
 #for position in emptySpot:
@@ -51,6 +53,6 @@ for row in grid:
     print(row)
 
 print("Sudoku after changes:")
-newGrid = f1.if_fits(grid, 0, f1.emptySpots)
+newGrid = f1.if_fits(grid, 0, emptySpots)
 for row in newGrid:
     print (row)

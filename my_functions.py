@@ -45,7 +45,6 @@ def filler(ins, board, i, j):
     return "$"
 
 # function that try to put number in empty spot TODO
-emptySpots = emptyList(grid)
 def if_fits(board, index, emptySpots):
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
