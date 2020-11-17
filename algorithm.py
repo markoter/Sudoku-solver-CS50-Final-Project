@@ -61,9 +61,7 @@ def emptyList(board):
 
 # function that puts lowest number (1,9) that fits, if it doesnt exists it puts "$"
 def filler(ins, board, i, j):
-    if ins == 0:
-        ins = 1
-    if ins == '$':
+    if ins == 0 or ins == '$':
         ins = 1
     while ins < 10:
         if search(ins, board, i, j) == 0:
