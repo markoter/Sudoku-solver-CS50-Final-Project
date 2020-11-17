@@ -59,7 +59,7 @@ def emptyList(board):
                 emptySpot.append({'ipos':i, 'jpos':j})
     return emptySpot
 
-# recursive function that puts lowest number (1,9) that fits, if it doesnt exists it puts "$"
+# function that puts lowest number (1,9) that fits, if it doesnt exists it puts "$"
 def filler(ins, board, i, j):
     if ins == 0:
         ins = 1
@@ -70,7 +70,6 @@ def filler(ins, board, i, j):
             return ins
         else:
             ins += 1
-            return filler(ins, board, i, j)
     return "$"
 
 # function that try to put number in empty spot TODO
