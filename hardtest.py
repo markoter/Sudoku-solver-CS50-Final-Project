@@ -1,24 +1,40 @@
-import array, random, math, time
+import array, random, math, time, sys
 print("***** Sudoku solver v0.1 *****")
-zerogrid = [ [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0], 
-           [0, 0, 0, 0, 0, 0, 0, 0, 0] ]
+# recursion problem solver:
+# show limit
+print(sys.getrecursionlimit())
+# change limit
+# sys.setrecursionlimit(2500)
 
-grid = [ [0, 0, 0, 0, 0, 0, 0, 3, 0],
-         [0, 0, 0, 0, 9, 1, 0, 0, 0],
-         [8, 7, 0, 3, 0, 0, 0, 2, 0],
-         [0, 0, 4, 0, 0, 0, 0, 0, 2], 
-         [0, 9, 0, 0, 0, 0, 6, 1, 0],  
-         [3, 6, 0, 0, 0, 0, 0, 0, 0],  
-         [0, 3, 9, 0, 0, 0, 0, 6, 4], 
-         [0, 0, 0, 0, 1, 0, 0, 8, 0], 
-         [0, 2, 0, 0, 0, 0, 3, 0, 1] ]
+zerogrid = [ [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0], 
+             [0, 0, 0, 0, 0, 0, 0, 0, 0] ]
+
+hagrid = [ [0, 0, 0, 0, 0, 0, 0, 3, 0],
+           [0, 0, 0, 0, 9, 1, 0, 0, 0],
+           [8, 7, 0, 3, 0, 0, 0, 2, 0],
+           [0, 0, 4, 0, 0, 0, 0, 0, 2], 
+           [0, 9, 0, 0, 0, 0, 6, 1, 0],  
+           [3, 6, 0, 0, 0, 0, 0, 0, 0],  
+           [0, 3, 9, 0, 0, 0, 0, 6, 4], 
+           [0, 0, 0, 0, 1, 0, 0, 8, 0], 
+           [0, 2, 0, 0, 0, 0, 3, 0, 1] ]
+
+grid = [ [6, 0, 0, 0, 3, 1, 4, 0, 0], 
+         [0, 3, 0, 8, 0, 5, 0, 0, 2], 
+         [0, 0, 9, 0, 0, 0, 0, 0, 8], 
+         [5, 6, 0, 0, 2, 4, 0, 0, 0], 
+         [0, 4, 0, 0, 0, 0, 0, 8, 7], 
+         [1, 0, 7, 3, 8, 6, 2, 0, 0], 
+         [4, 0, 0, 6, 5, 0, 8, 9, 0], 
+         [9, 2, 0, 1, 7, 0, 3, 0, 5], 
+         [8, 5, 1, 0, 4, 0, 0, 0, 0] ]
 
 #create box for defined i and j (there should be 9 boxes)
 def make_box(board, i, j):
@@ -92,18 +108,20 @@ def if_fits(board, index, emptySpots):
             return if_fits(board, index, emptySpots)
         index += 1
     return board
+def call(grid):
+    # debug printer
+    emptySpot = emptyList(grid)
+    print(f"empty spots to fill: {len(emptySpot)}")
+    #for position in emptySpot:
+    #  print(position)
 
-# debug printer
-emptySpot = emptyList(grid)
-print(f"empty spots to fill: {len(emptySpot)}")
-#for position in emptySpot:
- #  print(position)
+    print("Original sudoku grid:")
+    for row in grid:
+        print(row)
 
-print("Original sudoku grid:")
-for row in grid:
-    print(row)
+    print("Sudoku after changes:")
+    newGrid = if_fits(grid, 0, emptySpots)
+    for row in newGrid:
+        print (row)
 
-print("Sudoku after changes:")
-newGrid = if_fits(grid, 0, emptySpots)
-for row in newGrid:
-    print (row)
+call(zerogrid)
