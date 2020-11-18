@@ -45,7 +45,7 @@ def filler(ins, board, i, j):
     return "$"
 
 # function that try to put number in empty spot TODO
-def if_fits(board, index, emptySpots):
+def solve(board, index, emptySpots):
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
         j = emptySpots[index]['jpos']
