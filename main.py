@@ -1,4 +1,6 @@
-import array, random, math, time, solver, grids
+import array, random, math, time
+import solver
+import grids
 print("***** Sudoku solver v0.2 *****")
 
 grid = grids.grid
