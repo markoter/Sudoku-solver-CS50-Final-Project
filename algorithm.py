@@ -1,5 +1,5 @@
 import array, random, math, time
-import my_functions as f1 
+import my_functions as mf
 print("***** Sudoku solver v0.1 *****")
 
 # grid with only zeros
@@ -41,9 +41,9 @@ ogrid = [
 
 
 # debug printer
-emptySpots = emptyList(grid)
+emptySpots = mf.emptyList(grid)
 
-emptySpot = f1.emptyList(grid)
+emptySpot = mf.emptyList(grid)
 print(f"empty spots to fill: {len(emptySpot)}")
 #for position in emptySpot:
 #  print(position)
@@ -53,6 +53,6 @@ for row in grid:
     print(row)
 
 print("Sudoku after changes:")
-newGrid = f1.if_fits(grid, 0, emptySpots)
+newGrid = mf.if_fits(grid, 0, emptySpots)
 for row in newGrid:
     print (row)
