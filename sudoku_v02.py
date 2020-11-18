@@ -1,7 +1,7 @@
 import array, random, math, time
 import solver as solver
 import grids as grids
-print("***** Sudoku solver v0.1 *****")
+print("***** Sudoku solver v0.2 *****")
 
 grid = grids.grid
 emptySpots = solver.emptyList(grid)

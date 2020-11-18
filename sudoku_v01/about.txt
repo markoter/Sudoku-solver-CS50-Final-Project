@@ -1,0 +1,3 @@
+First version of sudoku solver.
+It has working algorithm that can solve any given sudoku grid.
+Grid have to be hardcoded in grids.py file.
