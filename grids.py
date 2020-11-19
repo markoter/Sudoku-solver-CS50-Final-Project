@@ -33,3 +33,17 @@ ogrid = [
     [4, 0, 0, 6, 5, 0, 8, 9, 0], 
     [9, 2, 0, 1, 7, 0, 3, 0, 5], 
     [8, 5, 1, 0, 4, 0, 0, 0, 0] ]
+
+def create_grid():
+    newgrid = []
+    print("Create new grid row by row: ")
+    for l in range (0,9):
+        while True:
+            line = (input(f"Write row {l+1}: "))
+            if len(line) == 9:
+                # change string line into list if ints
+                line = list(map(int, line))
+                newgrid.append(line)
+                break
+            print("Row must be 9 numbers long!")
+    return(newgrid)
