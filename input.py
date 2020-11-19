@@ -21,9 +21,9 @@ def create_grid():
                 newgrid.append(line)
                 break
             print("Row must be 9 numbers long!")
-    return(newgrid)
-    # print
-    for row in newgrid:
-        print(row)
+    return(newgrid) 
 
-create_grid()
+grid = create_grid()
+# print
+for row in grid:
+    print(row)
