@@ -11,10 +11,14 @@ def ask_by_elem():
 
 def ask_by_line():
     grid = []
-    for _ in range (0,3):
-        line = (input("write line: "))
-        grid.append(line)
+    for l in range (0,3):
+        line = (input(f"write line {l+1}: "))
+        if len(line) != 3:
+            print ("it myst be 9 numbers")
+            exit()
+        grid.append(list(line))
+    # print
     for row in grid:
         print(row)
 
-ask_by_elem()
+ask_by_line()
