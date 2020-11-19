@@ -16,11 +16,11 @@ def create_grid():
         while True:
             line = (input(f"Write row {l+1}: "))
             if len(line) == 9:
-                grid.append(list(line))
+                line = list(map(int, line))
+                grid.append(line)
                 break
             print("Row must be 9 numbers long!")
-        
-    # print
+    # print 123123132
     for row in grid:
         print(row)
 
