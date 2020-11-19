@@ -9,9 +9,9 @@ def ask_by_elem():
     for row in grid:
         print(row)
 
-def ask_by_line():
+def create_grid():
     grid = []
-    print("Write grid line by line: ")
+    print("Create new grid row by row: ")
     for l in range (0,9):
         while True:
             line = (input(f"Write row {l+1}: "))
@@ -24,4 +24,4 @@ def ask_by_line():
     for row in grid:
         print(row)
 
-ask_by_line()
+create_grid()
