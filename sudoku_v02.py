@@ -6,6 +6,11 @@ if len(argv) != 2:
     grid = grids.grid
 elif argv[1] == 'new':
     grid = grids.create_grid()
+else:
+    print("****** Wrong command!")
+    print("*******'new' - create your own grid")
+    print("******* none - run for default grid")
+    exit(1)
 
 emptySpots = solver.emptyList(grid)
 
