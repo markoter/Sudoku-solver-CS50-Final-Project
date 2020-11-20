@@ -7,6 +7,16 @@ grid = grids.zgrid
 emptySpots = solver.emptyList(grid)
 
 print("Number of empty spots: ", len(emptySpots))
-rnd = random.randint(1,10)
-for i in range(0, 99):
-    print(f"#{i} random - {random.randint(1,9)}")
+
+random.shuffle(emptySpots)
+
+ggrid = solver.solve(grid, 0, emptySpots)
+
+indx = 0
+for row in ggrid:
+    indx +=1
+    print(f"#{indx}:{row}")
+
+
+
+
