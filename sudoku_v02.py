@@ -3,9 +3,13 @@ from sys import argv, exit
 print("***** Sudoku solver v0.2 *****")
 
 if len(argv) != 2:
-    grid = grids.zgrid
+    grid = grids.grid
 elif argv[1] == 'new':
     grid = grids.create_grid()
+elif argv[1] == 'zero':
+    grid = grids.zgrid
+elif argv[1] == 'original':
+    grid = grids.ogrid
 else:
     print("****** Wrong command!")
     print("*******'new' - create your own grid")

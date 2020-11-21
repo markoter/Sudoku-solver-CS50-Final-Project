@@ -47,6 +47,7 @@ def filler(ins, board, i, j):
 
 # function that try to put number in empty spot TODO
 def solve(board, index, emptySpots):
+    run = 0
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
         j = emptySpots[index]['jpos']
@@ -56,6 +57,8 @@ def solve(board, index, emptySpots):
         # debug printer
         # print(f"in loc:({i},{j}) i put ({board[i][j]})")
         # grids.print_grid(board)
+        run += 1
+        print(run)
 
         if board[i][j] == "$":
             index -= 1
