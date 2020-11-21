@@ -1,3 +1,4 @@
+import grids
 #create box for defined i and j (there should be 9 boxes)
 def make_box(board, i, j):
     # create empty 2d list
@@ -51,6 +52,7 @@ def solve(board, index, emptySpots):
         j = emptySpots[index]['jpos']
         ins = board[i][j]
         board[i][j] = filler(ins, board, i, j)
+        grids.print_grid(board)
         if board[i][j] == "$":
             index -= 1
         else:

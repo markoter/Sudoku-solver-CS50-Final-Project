@@ -47,3 +47,8 @@ def create_grid():
                 break
             print("Row must be 9 numbers long!")
     return(newgrid)
+
+def print_grid(board):
+    print("####################")
+    for row in board:
+        print(row)
