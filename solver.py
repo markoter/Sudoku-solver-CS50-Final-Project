@@ -52,7 +52,11 @@ def solve(board, index, emptySpots):
         j = emptySpots[index]['jpos']
         ins = board[i][j]
         board[i][j] = filler(ins, board, i, j)
-        grids.print_grid(board)
+
+        # debug printer
+        # print(f"in loc:({i},{j}) i put ({board[i][j]})")
+        # grids.print_grid(board)
+
         if board[i][j] == "$":
             index -= 1
         else:

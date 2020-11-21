@@ -1,9 +1,9 @@
-import solver, grids
+import solver, grids, random
 from sys import argv, exit
 print("***** Sudoku solver v0.2 *****")
 
 if len(argv) != 2:
-    grid = grids.grid
+    grid = grids.zgrid
 elif argv[1] == 'new':
     grid = grids.create_grid()
 else:
@@ -13,7 +13,7 @@ else:
     exit(1)
 
 emptySpots = solver.emptyList(grid)
-
+random.shuffle(emptySpots)
 
 # debug printer
 print(f"Empty spots to fill: {len(emptySpots)}")
