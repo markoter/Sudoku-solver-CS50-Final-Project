@@ -13,11 +13,13 @@ elif argv[1] == 'original':
 else:
     print("****** Wrong command!")
     print("*******'new' - create your own grid")
+    print("*******'original' - run for easy grid")
+    print("*******'zero' - run for empty grid")
     print("******* none - run for default grid")
     exit(1)
 
 emptySpots = solver.emptyList(grid)
-random.shuffle(emptySpots)
+# random.shuffle(emptySpots)
 
 # debug printer
 print(f"Empty spots to fill: {len(emptySpots)}")
