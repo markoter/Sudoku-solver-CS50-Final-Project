@@ -2,20 +2,20 @@ import solver, grids, random
 from sys import argv, exit
 print("***** Sudoku solver v0.2 *****")
 
-if (len(argv) == 1) or (argv[1] == 'default'):
-    grid = grids.grid
+if (len(argv) == 1) or (argv[1] == 'easy'):
+    grid = grids.ogrid
 elif argv[1] == 'new':
     grid = grids.create_grid()
 elif argv[1] == 'zero':
     grid = grids.zgrid
-elif argv[1] == 'original':
-    grid = grids.ogrid
+elif argv[1] == 'hard':
+    grid = grids.hgrid
 else:
     print("****** Wrong command!")
     print("*******'new' - create your own grid")
-    print("*******'original' - run for easy grid")
+    print("*******'easy'or none - run for easy grid")
     print("*******'zero' - run for empty grid")
-    print("******* none - run for default grid")
+    print("******* hard - run for hard grid")
     exit(1)
 
 emptySpots = solver.emptyList(grid)
