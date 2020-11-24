@@ -35,20 +35,20 @@ def emptyList(board):
     return emptySpot
 
 # function that puts lowest number (1,9) that fits, if it doesnt exists it puts "$"
-def filler(ins, fillist, board, i, j):
+def rnd_filler(ins, fillist, board, i, j):
     if ins == 0 or ins == '$':
-        i = 0
+        k = 0
     else:
-        i = fillist.index(ins)
-    while i < 9:
-        if search(fillist[i], board, i, j) == 0:
-            return fillist[i]
+        k = fillist.index(ins)
+    while k < 9:
+        if search(fillist[k], board, i, j) == 0:
+            return fillist[k]
         else:
-            i += 1
+            k += 1
     return "$"
 
 # function that try to put number in empty spot TODO
-def solve(board, index, emptySpots):
+def rnd_solve(board, index, emptySpots):
     fillist = []
     fillist.extend(range(1,10))
     random.shuffle(fillist)
@@ -57,7 +57,7 @@ def solve(board, index, emptySpots):
         i = emptySpots[index]['ipos']
         j = emptySpots[index]['jpos']
         ins = board[i][j]
-        board[i][j] = filler(ins, fillist, board, i, j)
+        board[i][j] = rnd_filler(ins, fillist, board, i, j)
 
         # debug printer
         # run += 1

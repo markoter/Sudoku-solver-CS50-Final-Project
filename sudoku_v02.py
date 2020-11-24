@@ -10,18 +10,18 @@ elif argv[1] == 'zero':
     grid = grids.zgrid
 elif argv[1] == 'hard':
     grid = grids.hgrid
+elif argv[1] == 'destroy':
+    grid = grids.dgrid
 else:
     print("****** Wrong command!")
     print("*******'new' - create your own grid")
     print("*******'easy'or none - run for easy grid")
     print("*******'zero' - run for empty grid")
-    print("******* hard - run for hard grid")
+    print("*******'hard' - run for hard grid")
+    print("*******'destroy' - run for bruteforce breaker grid")
     exit(1)
 
 emptySpots = solver.emptyList(grid)
-if len(argv) == 3:
-    if argv[2] == 'random':
-        random.shuffle(emptySpots)
 
 # debug printer
 print(f"Empty spots to fill: {len(emptySpots)}")
