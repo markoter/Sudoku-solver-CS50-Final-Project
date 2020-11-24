@@ -1,4 +1,4 @@
-import grids
+import grids, random
 #create box for defined i and j (there should be 9 boxes)
 def make_box(board, i, j):
     # create empty 2d list
@@ -35,24 +35,29 @@ def emptyList(board):
     return emptySpot
 
 # function that puts lowest number (1,9) that fits, if it doesnt exists it puts "$"
-def filler(ins, board, i, j):
+def filler(ins, fillist, board, i, j):
     if ins == 0 or ins == '$':
-        ins = 1
-    while ins < 10:
-        if search(ins, board, i, j) == 0:
-            return ins
+        i = 0
+    else:
+        i = fillist.index(ins)
+    while i < 9:
+        if search(fillist[i], board, i, j) == 0:
+            return fillist[i]
         else:
-            ins += 1
+            i += 1
     return "$"
 
 # function that try to put number in empty spot TODO
 def solve(board, index, emptySpots):
+    fillist = []
+    fillist.extend(range(1,10))
+    random.shuffle(fillist)
     # run = 0 # debug
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
         j = emptySpots[index]['jpos']
         ins = board[i][j]
-        board[i][j] = filler(ins, board, i, j)
+        board[i][j] = filler(ins, fillist, board, i, j)
 
         # debug printer
         # run += 1
