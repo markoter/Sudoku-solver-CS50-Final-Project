@@ -2,7 +2,7 @@ import solver, grids, random
 from sys import argv, exit
 print("***** Sudoku generator v0.1 *****")
 
-grid = grids.zgrid
+grid = grids.ogrid
 
 emptySpots = solver.emptyList(grid)
 
