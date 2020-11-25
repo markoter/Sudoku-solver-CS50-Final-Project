@@ -4,11 +4,9 @@ print("***** Sudoku generator v0.1 *****")
 
 grid = grids.zgrid
 
-emptySpots = solver.emptyList(grid)
+print("Number of empty spots: ", len(solver.emptyList(grid)))
 
-print("Number of empty spots: ", len(emptySpots))
-
-ggrid = solver.rnd_solve(grid, 0, emptySpots)
+ggrid = solver.rnd_solve(grid)
 
 indx = 0
 for row in ggrid:
