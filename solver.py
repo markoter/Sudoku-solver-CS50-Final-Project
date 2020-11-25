@@ -46,11 +46,13 @@ def filler(ins, board, i, j):
     return "$"
 
 # function that try to put number in empty spot TODO
-def solve(boardIN, index, emptySpots):
-    # run = 0 # debug
-
+def solve(boardIN):
     # create deepcopy to prevent affecting original grid
     board = copy.deepcopy(boardIN)
+
+    # create necessery variables
+    index = 0
+    emptySpots = emptyList(board)
 
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
@@ -84,10 +86,13 @@ def rnd_filler(ins, fillist, board, i, j):
     return "$"
 
 # function that try to put number in empty spot but using random filler
-def rnd_solve(boardIN, index, emptySpots):
-
+def rnd_solve(boardIN):
     # create deepcopy to prevent affecting original grid
     board = copy.deepcopy(boardIN)
+
+    # create necessery variables
+    index = 0
+    emptySpots = emptyList(board)
 
     # create list with numbers 1 to 9 in random order
     fillist = []
@@ -110,3 +115,8 @@ def rnd_solve(boardIN, index, emptySpots):
         else:
             index += 1
     return board
+'''
+def test_unique(boardIN):
+    # solve by normal solve
+    board = solve
+'''
