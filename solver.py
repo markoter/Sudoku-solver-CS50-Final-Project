@@ -66,8 +66,10 @@ def solve(board, index, emptySpots):
 
 # filler but put numbers (1,9) in random order
 def rnd_filler(ins, fillist, board, i, j):
+    # if this start from first elem in list 
     if ins == 0 or ins == '$':
         k = 0
+    # else find elem in list and start from its position
     else:
         k = fillist.index(ins)
     while k < 9:
@@ -79,9 +81,11 @@ def rnd_filler(ins, fillist, board, i, j):
 
 # function that try to put number in empty spot but using random filler
 def rnd_solve(board, index, emptySpots):
+    # create list with numbers 1 to 9 in random order
     fillist = []
     fillist.extend(range(1,10))
     random.shuffle(fillist)
+
     # run = 0 # debug
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
