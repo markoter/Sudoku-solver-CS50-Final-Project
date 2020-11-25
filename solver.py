@@ -1,4 +1,4 @@
-import grids, random
+import grids, random, copy
 #create box for defined i and j (there should be 9 boxes)
 def make_box(board, i, j):
     # create empty 2d list
@@ -46,8 +46,12 @@ def filler(ins, board, i, j):
     return "$"
 
 # function that try to put number in empty spot TODO
-def solve(board, index, emptySpots):
+def solve(boardIN, index, emptySpots):
     # run = 0 # debug
+
+    # create deepcopy to prevent affecting original grid
+    board = copy.deepcopy(boardIN)
+
     while index < len(emptySpots):
         i = emptySpots[index]['ipos']
         j = emptySpots[index]['jpos']
@@ -80,7 +84,11 @@ def rnd_filler(ins, fillist, board, i, j):
     return "$"
 
 # function that try to put number in empty spot but using random filler
-def rnd_solve(board, index, emptySpots):
+def rnd_solve(boardIN, index, emptySpots):
+
+    # create deepcopy to prevent affecting original grid
+    board = copy.deepcopy(boardIN)
+
     # create list with numbers 1 to 9 in random order
     fillist = []
     fillist.extend(range(1,10))
