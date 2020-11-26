@@ -46,6 +46,7 @@ dgrid = [
     [0, 0, 2, 0, 1, 0, 0, 0, 0], 
     [0, 0, 0, 0, 4, 0, 0, 0, 9] ]
 
+# function to create grig line by line 
 def create_grid():
     newgrid = []
     print("Create new grid row by row: ")
@@ -60,6 +61,7 @@ def create_grid():
             print("Row must be 9 numbers long!")
     return(newgrid)
 
+# simple grid printer
 def print_grid(board):
     for iteration, row in enumerate(board):
         print(f"#{iteration+1}:{row}")

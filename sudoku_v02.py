@@ -34,6 +34,3 @@ grids.print_grid(newGrid)
 print("Sudoku solved with random algorithm after changes:")
 newRandomGrid = solver.rnd_solve(grid)
 grids.print_grid(newRandomGrid)
-
-print("Original sudoku grid:")
-grids.print_grid(grid)
