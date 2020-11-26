@@ -25,27 +25,15 @@ else:
 print(f"Empty spots to fill: {len(solver.emptyList(grid))}")
 
 print("Original sudoku grid:")
-indx = 0
-for row in grid:
-    indx +=1
-    print(f"#{indx}:{row}")
+grids.print_grid(grid)
 
 print("Sudoku solved with normal algorithm after changes:")
 newGrid = solver.solve(grid)
-indx = 0
-for row in newGrid:
-    indx +=1
-    print(f"#{indx}:{row}")
+grids.print_grid(newGrid)
 
 print("Sudoku solved with random algorithm after changes:")
 newRandomGrid = solver.rnd_solve(grid)
-indx = 0
-for row in newRandomGrid:
-    indx +=1
-    print(f"#{indx}:{row}")
+grids.print_grid(newRandomGrid)
 
 print("Original sudoku grid:")
-indx = 0
-for row in grid:
-    indx +=1
-    print(f"#{indx}:{row}")
+grids.print_grid(grid)

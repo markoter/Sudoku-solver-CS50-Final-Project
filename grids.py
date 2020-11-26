@@ -61,6 +61,5 @@ def create_grid():
     return(newgrid)
 
 def print_grid(board):
-    print("####################")
-    for row in board:
-        print(row)
+    for iteration, row in enumerate(board):
+        print(f"#{iteration+1}:{row}")

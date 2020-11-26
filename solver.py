@@ -115,8 +115,14 @@ def rnd_solve(boardIN):
         else:
             index += 1
     return board
-'''
-def test_unique(boardIN):
+
+def test_unique(boardIN):    
+    # create deepcopy to prevent affecting original grid
+    boardNorm = copy.deepcopy(boardIN)
+    
     # solve by normal solve
-    board = solve
-'''
+    solve(boardNorm)
+    
+    # solve couple times by random solver
+
+        #compare result to normal
