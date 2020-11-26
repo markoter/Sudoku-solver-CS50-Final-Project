@@ -21,6 +21,9 @@ else:
     print("*******'destroy' - run for bruteforce breaker grid")
     exit(1)
 
+# debug test unique
+solver.test_unique(grid)
+
 # debug printer
 print(f"Empty spots to fill: {len(solver.emptyList(grid))}")
 

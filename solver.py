@@ -116,13 +116,28 @@ def rnd_solve(boardIN):
             index += 1
     return board
 
-def test_unique(boardIN):    
+def test_unique(boardIN):
+      
     # create deepcopy to prevent affecting original grid
     boardNorm = copy.deepcopy(boardIN)
     
     # solve by normal solve
-    solve(boardNorm)
+    boardNorm = solve(boardNorm)
     
     # solve couple times by random solver
-
+    for i in range(3):
+        boardRND = copy.deepcopy(boardIN)
+        boardRND = rnd_solve(boardRND)
+        
         #compare result to normal
+        if boardRND != boardNorm:
+            print("Grid doesn't have unique solution!")
+
+            print("boardNorm")
+            grids.print_grid(boardNorm)
+
+            print(f"#{i} board RND")
+            grids.print_grid(boardRND)
+            exit(1)
+        else:
+            print("it's fine")
