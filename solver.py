@@ -117,8 +117,7 @@ def rnd_solve(boardIN):
     return board
 
 # function return true if grid probably has only one valid solution
-def test_if_unique(boardIN):
-    debug = False
+def test_if_unique(boardIN, debug = False):
     # create deepcopy to prevent affecting original grid
     boardNorm = copy.deepcopy(boardIN)
     

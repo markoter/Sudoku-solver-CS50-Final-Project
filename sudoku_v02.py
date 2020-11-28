@@ -32,7 +32,7 @@ grids.print_grid(grid)
 # debug test unique
 result_unique = solver.test_if_unique(grid)
 print(f" is it unique - {result_unique}")
-
+'''
 print("Sudoku solved with normal algorithm after changes:")
 newGrid = solver.solve(grid)
 grids.print_grid(newGrid)
@@ -40,3 +40,4 @@ grids.print_grid(newGrid)
 print("Sudoku solved with random algorithm after changes:")
 newRandomGrid = solver.rnd_solve(grid)
 grids.print_grid(newRandomGrid)
+'''
