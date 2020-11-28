@@ -123,9 +123,11 @@ def test_unique(boardIN):
     
     # solve by normal solve
     boardNorm = solve(boardNorm)
+    # debug printer
+    '''
     print("Sudoku solved with normal algorithm after changes:")
     grids.print_grid(boardNorm)
-
+    '''
     # solve couple times by random solver
     for i in range(3):
         boardRND = copy.deepcopy(boardIN)
@@ -134,7 +136,10 @@ def test_unique(boardIN):
         #compare result to normal
         if boardRND != boardNorm:
             print("Grid doesn't have unique solution!")
+            # debug printer
+            '''
             print(f"Sudoku solved with random algorithm #{i} after changes:")
             grids.print_grid(boardRND)
+            '''
             exit(1)
     print("Grid probably is legit.")
