@@ -153,9 +153,8 @@ def clean_cells(board, noc):
         i = random.randint(0, 9)
         j = random.randint(0, 9)
         cells_list.append({'ipos':i, 'jpos':j})
-    index = 0
-    while index < len(cells_list):
-        i = cells_list[index]['ipos']
-        j = cells_list[index]['jpos']
-        board[i][j] = 0
+    for index in range(0,noc):
+        k = cells_list[index]['ipos']
+        l = cells_list[index]['jpos']
+        board[k][l] = 0
 
