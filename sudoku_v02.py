@@ -30,7 +30,8 @@ print("Original sudoku grid:")
 grids.print_grid(grid)
 
 # debug test unique
-solver.test_unique(grid)
+# result_unique = solver.test_if_unique(grid)
+# print(f" is it unique - {result_unique}")
 
 print("Sudoku solved with normal algorithm after changes:")
 newGrid = solver.solve(grid)

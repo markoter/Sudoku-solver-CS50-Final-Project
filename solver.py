@@ -116,7 +116,7 @@ def rnd_solve(boardIN):
             index += 1
     return board
 
-def test_unique(boardIN):
+def test_if_unique(boardIN):
 
     # create deepcopy to prevent affecting original grid
     boardNorm = copy.deepcopy(boardIN)
@@ -135,11 +135,12 @@ def test_unique(boardIN):
 
         #compare result to normal
         if boardRND != boardNorm:
-            print("Grid doesn't have unique solution!")
             # debug printer
             '''
+            print("Grid doesn't have unique solution!")
             print(f"Sudoku solved with random algorithm #{i} after changes:")
             grids.print_grid(boardRND)
             '''
-            exit(1)
-    print("Grid probably is legit.")
+            return False
+    # debug print("Grid probably is legit.")
+    return True
