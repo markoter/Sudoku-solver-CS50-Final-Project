@@ -10,6 +10,8 @@ ggrid = solver.rnd_solve(grid)
 
 grids.print_grid(ggrid)
 
+numbers_to_remove = input("How many empty spaces?")
 
+print("you want to erase ", numbers_to_remove, "numbers")
 
 
