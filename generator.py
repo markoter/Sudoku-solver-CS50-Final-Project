@@ -17,5 +17,9 @@ if solver.clean_cells(ggrid, number_of_cells) != 0:
     exit(1)
 
 grids.print_grid(ggrid)
+if solver.test_if_unique(ggrid) == True:
+    print("This grid has one valid solution.")
+else:
+    print("Error! - Grid has multiple solutions.")
 
 
