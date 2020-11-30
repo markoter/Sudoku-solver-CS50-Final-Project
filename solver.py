@@ -49,7 +49,6 @@ def filler(ins, board, i, j):
 def solve(boardIN):
     # create deepcopy to prevent affecting original grid
     board = copy.deepcopy(boardIN)
-
     # create necessery variables
     index = 0
     emptySpots = emptyList(board)
@@ -59,10 +58,6 @@ def solve(boardIN):
         j = emptySpots[index]['jpos']
         ins = board[i][j]
         board[i][j] = filler(ins, board, i, j)
-
-        # debug printer
-        # run += 1
-        # print(run)
 
         if board[i][j] == "$":
             index -= 1
@@ -89,11 +84,9 @@ def rnd_filler(ins, fillist, board, i, j):
 def rnd_solve(boardIN):
     # create deepcopy to prevent affecting original grid
     board = copy.deepcopy(boardIN)
-
     # create necessery variables
     index = 0
     emptySpots = emptyList(board)
-
     # create list with numbers 1 to 9 in random order
     fillist = []
     fillist.extend(range(1,10))
@@ -106,10 +99,6 @@ def rnd_solve(boardIN):
         ins = board[i][j]
         board[i][j] = rnd_filler(ins, fillist, board, i, j)
 
-        # debug printer
-        # run += 1
-        # print(run)
-
         if board[i][j] == "$":
             index -= 1
         else:
@@ -120,10 +109,9 @@ def rnd_solve(boardIN):
 def test_if_unique(boardIN, debug = False):
     # create deepcopy to prevent affecting original grid
     boardNorm = copy.deepcopy(boardIN)
-    
     # solve by normal solve
     boardNorm = solve(boardNorm)
-    # debug printer
+
     if debug:
         print("Sudoku solved with normal algorithm after changes:")
         grids.print_grid(boardNorm)
@@ -133,15 +121,15 @@ def test_if_unique(boardIN, debug = False):
         boardRND = copy.deepcopy(boardIN)
         boardRND = rnd_solve(boardRND)
 
-        #compare result to normal
+        # compare result to normal
         if boardRND != boardNorm:
-            # debug printer
+            
             if debug:
                 print("Grid doesn't have unique solution!")
                 print(f"Sudoku solved with random algorithm #{i} after changes:")
                 grids.print_grid(boardRND)
             return False
-    # debug 
+
     if debug:
         print("Grid probably is legit.")
     return True
