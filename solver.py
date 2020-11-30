@@ -148,13 +148,12 @@ def test_if_unique(boardIN, debug = False):
 
 # function that will clean some spots in grid
 def clean_cells(board, noc):
-    cells_list = []
-    for _ in range(noc):
+    counter = 0
+    while counter < noc:
         i = random.randint(0, 8)
         j = random.randint(0, 8)
-        cells_list.append({'ipos':i, 'jpos':j})
-    for index in range(0,noc):
-        k = cells_list[index]['ipos']
-        l = cells_list[index]['jpos']
-        board[k][l] = 0
+        if board[i][j] != 0:
+            board[i][j] = 0
+            counter += 1
+
 
