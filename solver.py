@@ -150,8 +150,8 @@ def test_if_unique(boardIN, debug = False):
 def clean_cells(board, noc):
     cells_list = []
     for _ in range(noc):
-        i = random.randint(0, 9)
-        j = random.randint(0, 9)
+        i = random.randint(0, 8)
+        j = random.randint(0, 8)
         cells_list.append({'ipos':i, 'jpos':j})
     for index in range(0,noc):
         k = cells_list[index]['ipos']
