@@ -12,8 +12,9 @@ grids.print_grid(ggrid)
 
 number_of_cells = int(input("How many empty spaces? "))
 
-print("you want to erase ", number_of_cells, "numbers")
-solver.clean_cells(ggrid, number_of_cells)
+print("You want to erase ", number_of_cells, "numbers")
+if solver.clean_cells(ggrid, number_of_cells) != 0:
+    exit(1)
 
 grids.print_grid(ggrid)
 

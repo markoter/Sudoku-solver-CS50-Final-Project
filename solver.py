@@ -148,12 +148,16 @@ def test_if_unique(boardIN, debug = False):
 
 # function that will clean some spots in grid
 def clean_cells(board, noc):
-    counter = 0
-    while counter < noc:
-        i = random.randint(0, 8)
-        j = random.randint(0, 8)
-        if board[i][j] != 0:
-            board[i][j] = 0
-            counter += 1
-
+    if noc not in range(1,81):
+        print("Error! - Number should be in range(1,81)")
+        return 1
+    else:
+        counter = 0
+        while counter < noc:
+            i = random.randint(0, 8)
+            j = random.randint(0, 8)
+            if board[i][j] != 0:
+                board[i][j] = 0
+                counter += 1
+        return 0
 
