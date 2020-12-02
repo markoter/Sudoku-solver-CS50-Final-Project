@@ -1,8 +1,8 @@
 import sys, pygame
 pygame.init()
 
-size = width, height = 800, 600
-speed = [1, 1]
+size = width, height = 1920, 1080
+speed = [6, 1]
 black = 0, 0, 0
 
 screen = pygame.display.set_mode(size)
