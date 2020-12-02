@@ -1,16 +1,28 @@
 import pygame, sys
 
-# initialize the pygame
-pygame.init()
+fps = 10
+# set size of the grid
+size = windowWidth, windowHeight = 450, 450
+# set colors
+white = (255,255,255)
 
-size = width, height = 450, 450
-black = 0, 0, 0
+def main():
+    # initialize the pygame
+    pygame.init()
+    fpsClock = pygame.time.Clock()
+    # set screen
+    screen = pygame.display.set_mode(size)
+    # set name shown on window
+    pygame.display.set_caption('Sudoku Solver v03 GUI')
+    # set background
+    screen.fill(white)
 
-# create the screen
-screen = pygame.display.set_mode(size)
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+        pygame.display.update()
+        fpsClock.tick(fps)
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-    pygame.display.update()
+if __name__ == '__main__':
+    main()
