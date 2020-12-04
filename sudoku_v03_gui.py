@@ -18,6 +18,14 @@ def drawGrid(screen):
     # minor lines
     for x in range(0, windowWidth, cellSize):
         pygame.draw.line(screen, lightGray, (x,0), (x,windowHeight))
+    for y in range(0, windowHeight, cellSize):
+        pygame.draw.line(screen, lightGray, (0,y), (windowHeight,y))
+
+    # major lines
+    for x in range(0, windowWidth, squareSize):
+        pygame.draw.line(screen, black, (x,0), (x, windowWidth))
+    for y in range(0, windowHeight, squareSize):
+        pygame.draw.line(screen, black, (0,y), (windowWidth, y))
     
     return None
 
