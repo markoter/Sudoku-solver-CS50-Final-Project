@@ -2,12 +2,13 @@ import pygame, sys
 
 fps = 10
 # set size of the grid
-windowSize = int(90)
-windowMultiplier = int(5) # here modify the size of the window
+windowSize = int(81)
+windowMultiplier = int(6) # here modify the size of the window
 windowWidth = int(windowSize * windowMultiplier)
 windowHeight = int(windowSize * windowMultiplier)
 squareSize = int((windowSize * windowMultiplier) / 3)
 cellSize = int(squareSize / 3)
+numberSize = int(cellSize/ 3)
 
 # set colors
 white = (255,255,255)
