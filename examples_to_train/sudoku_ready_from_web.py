@@ -5,13 +5,13 @@ from pygame.locals import *
 FPS = 10
 
 # Sets size of grid
-WINDOWMULTIPLIER = 5 # Modify this number to change size of grid
-WINDOWSIZE = 81 # needs to be multiple of 9
-WINDOWWIDTH = WINDOWSIZE * WINDOWMULTIPLIER
-WINDOWHEIGHT = WINDOWSIZE * WINDOWMULTIPLIER
-SQUARESIZE = (WINDOWSIZE * WINDOWMULTIPLIER) / 3 # size of a 3x3 square
-CELLSIZE = SQUARESIZE / 3 # Size of a cell
-NUMBERSIZE = CELLSIZE /3 # Position of unsolved number
+WINDOWMULTIPLIER = int(5) # Modify this number to change size of grid
+WINDOWSIZE = int(81) # needs to be multiple of 9
+WINDOWWIDTH = int(WINDOWSIZE * WINDOWMULTIPLIER)
+WINDOWHEIGHT = int(WINDOWSIZE * WINDOWMULTIPLIER)
+SQUARESIZE = int((WINDOWSIZE * WINDOWMULTIPLIER) / 3) # size of a 3x3 square
+CELLSIZE = int(SQUARESIZE / 3) # Size of a cell
+NUMBERSIZE = int(CELLSIZE /3) # Position of unsolved number
 
 # Set up the colours
 BLACK     = (0  ,0  ,0  )
@@ -378,6 +378,3 @@ def main():
 
 if __name__=='__main__':
     main()
-
-sudoku_step_8.py
-Displaying sudoku_step_8.py.
