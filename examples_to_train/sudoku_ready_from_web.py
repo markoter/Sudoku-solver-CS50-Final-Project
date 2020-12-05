@@ -88,8 +88,8 @@ def drawBox(mousex, mousey):
 
 # allows choice of number and displays selected number
 def displaySelectedNumber(mousex, mousey, currentGrid):
-    xNumber = (mousex*27) / WINDOWWIDTH # xNumber in range 0 - 26
-    yNumber = (mousey*27) / WINDOWWIDTH # yNumber in range 0 - 26
+    xNumber = int((mousex*27) / WINDOWWIDTH )# xNumber in range 0 - 26
+    yNumber = int((mousey*27) / WINDOWWIDTH) # yNumber in range 0 - 26
     #Determine a 0,1 or 2 for x and y
     modXNumber = xNumber % 3
     modYNumber = yNumber % 3
