@@ -1,28 +1,30 @@
 import solver, grids, random
 from sys import argv, exit
-print("***** Sudoku solver v0.2 *****")
+print("***** Sudoku solver v0.3 terminal edition *****")
 
-if (len(argv) == 1) or (argv[1] == 'easy'):
-    grid = grids.ogrid
-elif argv[1] == 'new':
-    grid = grids.create_grid()
-elif argv[1] == 'zero':
-    grid = grids.zgrid
-elif argv[1] == 'hard':
-    grid = grids.hgrid
-elif argv[1] == 'destroy':
-    grid = grids.dgrid
-else:
-    print("****** Wrong command!")
-    print("*******'new' - create your own grid")
-    print("*******'easy'or none - run for easy grid")
-    print("*******'zero' - run for empty grid")
-    print("*******'hard' - run for hard grid")
-    print("*******'destroy' - run for bruteforce breaker grid")
+def usage_and_exit():
+    print(" Usage:")
+    print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it")
+    print("  py sudoku_v03_terminal.py [generate] [number of empty spaces] - generate sudoku board and export it into file")
+    print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
 
+if len(argv) == 2:
+    if argv[1] == 'new':
+        print("TODO writing new board")
+    else:
+        usage_and_exit()
+elif len(argv) == 3:
+    if (argv[1] == 'generate') and (argv[2] != False):
+        print("TODO generate new board with int empty spaces")
+    elif (argv[1] == 'import') and (argv[2] != False):
+        print("TODO import grid from file and solve it")
+    else:
+        usage_and_exit()
+else:
+    usage_and_exit()
 
-
+"""
 # debug printer
 print(f"Empty spots to fill: {len(solver.emptyList(grid))}")
 
@@ -41,3 +43,4 @@ print("Sudoku solved with random algorithm after changes:")
 newRandomGrid = solver.rnd_solve(grid)
 grids.print_grid(newRandomGrid)
 '''
+"""
