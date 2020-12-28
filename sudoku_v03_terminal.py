@@ -13,9 +13,9 @@ def import_sudoku(gridtxt):
     imported_grid = []
     with open(gridtxt, 'r') as file:
         for line in file:
-            number_strings = line.split()
-            numbers = [int(n) for n in number_strings]
-            imported_grid.append(numbers)
+            number_strings = line.split() # split the line of runs of whitespace
+            numbers = [int(n) for n in number_strings] # convert to integers
+            imported_grid.append(numbers) # add the "row" to list
     grids.print_grid(imported_grid)       
 
 
