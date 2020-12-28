@@ -26,6 +26,6 @@ else:
     
 # export generated sudoku to file
 with open("generated_sudoku.txt", 'w') as file:
-    file.writelines(','.join(str(j) for j in i) + '\n' for i in ggrid)
+    file.writelines(' '.join(str(j) for j in i) + '\n' for i in ggrid)
 
 
