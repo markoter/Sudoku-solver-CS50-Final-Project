@@ -21,9 +21,11 @@ if solver.clean_cells(ggrid, number_of_cells) != 0:
 grids.print_grid(ggrid)
 if solver.test_if_unique(ggrid) == True:
     print("This grid has one valid solution.")
-    with open("generated_sudoku.txt", 'w') as file:
-        file.writelines(','.join(str(j) for j in i) + '\n' for i in ggrid)
 else:
     print("Error! - Grid has multiple solutions.")
+    
+# export generated sudoku to file
+with open("generated_sudoku.txt", 'w') as file:
+    file.writelines(','.join(str(j) for j in i) + '\n' for i in ggrid)
 
 
