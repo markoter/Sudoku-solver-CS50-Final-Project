@@ -9,9 +9,9 @@ def usage_and_exit():
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
 
-def import_sudoku():
+def import_sudoku(gridtxt):
     imported_grid = []
-    with open("test_sudoku.txt", 'r') as file:
+    with open(gridtxt, 'r') as file:
         for line in file:
             number_strings = line.split()
             numbers = [int(n) for n in number_strings]
@@ -30,7 +30,7 @@ elif len(argv) == 3:
         print("TODO generate new board with int empty spaces")
     elif (argv[1] == 'import') and (argv[2] != False):
         print("TODO import grid from file and solve it")
-        import_sudoku()
+        import_sudoku(argv[2])
     else:
         usage_and_exit()
 else:
