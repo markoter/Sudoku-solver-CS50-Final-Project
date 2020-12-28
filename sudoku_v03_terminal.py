@@ -10,7 +10,14 @@ def usage_and_exit():
     exit(1)
 
 def import_sudoku():
-    
+    imported_grid = []
+    with open("test_sudoku.txt", 'r') as file:
+        for line in file:
+            number_strings = line.split()
+            numbers = [int(n) for n in number_strings]
+            imported_grid.append(numbers)
+    grids.print_grid(imported_grid)       
+
 
 # terminal 
 if len(argv) == 2:
@@ -23,6 +30,7 @@ elif len(argv) == 3:
         print("TODO generate new board with int empty spaces")
     elif (argv[1] == 'import') and (argv[2] != False):
         print("TODO import grid from file and solve it")
+        import_sudoku()
     else:
         usage_and_exit()
 else:
