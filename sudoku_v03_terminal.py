@@ -9,6 +9,10 @@ def usage_and_exit():
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
 
+def import_sudoku():
+    
+
+# terminal 
 if len(argv) == 2:
     if argv[1] == 'new':
         print("TODO writing new board")
