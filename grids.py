@@ -66,3 +66,8 @@ def print_grid(board):
     for iteration, row in enumerate(board):
         print(f"#{iteration+1}:{row}")
     print(" ----------------------------")
+
+# export sudoku grid to file.txt
+def export_grid(txtfile, board):
+    with open(txtfile, 'w') as file:
+        file.writelines(' '.join(str(j) for j in i) + '\n' for i in board)
