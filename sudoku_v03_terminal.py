@@ -10,12 +10,7 @@ def usage_and_exit():
     exit(1)
 
 def import_sudoku(gridtxt):
-    imported_grid = []
-    with open(gridtxt, 'r') as file:
-        for line in file:
-            number_strings = line.split() # split the line of runs of whitespace
-            numbers = [int(n) for n in number_strings] # convert to integers
-            imported_grid.append(numbers) # add the "row" to list
+    imported_grid = grids.import_grid(gridtxt)
     grids.print_grid(imported_grid)       
 
 
