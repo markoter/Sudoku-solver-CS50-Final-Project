@@ -1,8 +1,10 @@
-import grids, random, solver
+import grids, random, solver, pickle
 from sys import argv, exit
 print("***** Sudoku generator v0.1 *****")
 
 grid = grids.zgrid
+# open textfile to save generated grid
+text_file = open("generated_sudoku.txt", "w+")
 
 print("Number of empty spots: ", len(solver.emptyList(grid)))
 
@@ -19,6 +21,7 @@ if solver.clean_cells(ggrid, number_of_cells) != 0:
 grids.print_grid(ggrid)
 if solver.test_if_unique(ggrid) == True:
     print("This grid has one valid solution.")
+    pickle.dump(ggrid, text_file)
 else:
     print("Error! - Grid has multiple solutions.")
 

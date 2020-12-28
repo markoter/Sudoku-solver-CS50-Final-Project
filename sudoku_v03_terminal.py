@@ -5,7 +5,7 @@ print("***** Sudoku solver v0.3 terminal edition *****")
 def usage_and_exit():
     print(" Usage:")
     print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it")
-    print("  py sudoku_v03_terminal.py [generate] [number of empty spaces] - generate sudoku board and export it into file")
+    print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] - generate sudoku board and export it into file")
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
 
