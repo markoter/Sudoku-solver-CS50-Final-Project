@@ -51,6 +51,7 @@ def generate_sudoku(number_zeros):
     solver.clean_cells(board, number_zeros)
 
     # print generated sudoku board
+    print(f"\nGenerated sudoku grid:")
     grids.print_grid(board)
 
     # check if it has only one sollution
@@ -62,6 +63,10 @@ def generate_sudoku(number_zeros):
     # export generated grid to txt file
     grids.export_grid(f"generated_sudoku_with_{number_zeros}_emptycells.txt", board)
 
+# function to write new sudoku right through terminal
+def new_sudoku():
+    
+    
 
 
 
@@ -73,13 +78,6 @@ main()
 # debug printer
 print(f"Empty spots to fill: {len(solver.emptyList(grid))}")
 
-print("Original sudoku grid:")
-grids.print_grid(grid)
-
-# debug test unique
-result_unique = solver.test_if_unique(grid)
-print(f" is it unique - {result_unique}")
-'''
 print("Sudoku solved with normal algorithm after changes:")
 newGrid = solver.solve(grid)
 grids.print_grid(newGrid)
