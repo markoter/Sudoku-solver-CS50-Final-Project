@@ -1,4 +1,4 @@
-import solver, grids, random
+import solver, grids, random, time
 from sys import argv, exit
 print("***** Sudoku solver v0.3 terminal edition *****")
 
@@ -36,8 +36,10 @@ def import_sudoku(filenametxt):
     print(f"\nSudoku imported from: {filenametxt}:")
     grids.print_grid(imported_grid)    
     # solve, print and export sollution
+    solving_start = time.time()
     solved_grid = solver.solve(imported_grid)
-    print(f"\nSollution:")
+    solving_time = (time.time() - solving_start)
+    print(f"\nSollution (in {solving_time} seconds):")
     grids.print_grid(solved_grid)
     grids.export_grid("imported_sudoku_sollution.txt", solved_grid)
 
