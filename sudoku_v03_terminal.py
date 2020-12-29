@@ -42,17 +42,17 @@ def generate_sudoku(number_zeros):
         exit(1)
     board = solver.rnd_solve(grids.zgrid)
 
-    # if number_zeros not in range 0-81
-    if solver.clean_cells(board, number_zeros) != 0:
-        exit(1)
-    # print ready sudoku board
+    # clean some cells
+    solver.clean_cells(board, number_zeros)
+
+    # print generated sudoku board
     grids.print_grid(board)
 
     # check if it has only one sollution
     if solver.test_if_unique(board) == True:
         print("This grid has one valid solution.")
     else:
-        print("Error! - Grid has multiple solutions.")
+        print("Warning! - Grid has multiple solutions, so it's no good.")
     
     # export generated grid to txt file
     grids.export_grid(f"generated_sudoku_with_{number_zeros}_emptycells.txt", board)
