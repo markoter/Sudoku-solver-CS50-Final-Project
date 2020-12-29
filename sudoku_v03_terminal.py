@@ -2,8 +2,6 @@ import solver, grids, random
 from sys import argv, exit
 print("***** Sudoku solver v0.3 terminal edition *****")
 
-
-
 # terminal 
 def main():
     if len(argv) == 2:
@@ -13,7 +11,7 @@ def main():
             usage_and_exit()
     elif len(argv) == 3:
         if (argv[1] == 'generate') and (argv[2] != False):
-            print("TODO generate new board with int empty spaces")
+            generate_sudoku(argv[2])
         elif (argv[1] == 'import') and (argv[2] != False):
             print("TODO import grid from file and solve it")
             import_sudoku(argv[2])
@@ -21,7 +19,8 @@ def main():
             usage_and_exit()
     else:
         usage_and_exit()
-        
+
+# function to call when wrong command       
 def usage_and_exit():
     print(" Usage:")
     print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it")
@@ -35,7 +34,31 @@ def import_sudoku(gridtxt):
     grids.print_grid(imported_grid)       
 
 # function to generate and export sudoku grid
-# def generate_sudoku()
+def generate_sudoku(number_zeros):
+    number_zeros = int(number_zeros)
+
+    zero_board = grids.zgrid
+
+    board = solver.rnd_solve(zero_board)
+
+    # if number_zeros not in range 0-81
+    if solver.clean_cells(board, number_zeros) != 0:
+        exit(1)
+    # print ready sudoku board
+    grids.print_grid(board)
+
+    # check if it has only one sollution
+    if solver.test_if_unique(board) == True:
+        print("This grid has one valid solution.")
+    else:
+        print("Error! - Grid has multiple solutions.")
+    
+    # export generated grid to txt file
+    grids.export_grid(f"generated_sudoku_with_{number_zeros}_emptycells.txt", board)
+
+
+
+
 
 # run main
 main()
