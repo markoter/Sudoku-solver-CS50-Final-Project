@@ -71,11 +71,11 @@ def print_grid(board):
 def export_grid(filenametxt, board):
     with open(filenametxt, 'w') as file:
         file.writelines(' '.join(str(j) for j in i) + '\n' for i in board)
-
+    print(f'Sudoku grid exported to "{filenametxt}"')
 # import sudoku grid from file.txt
-def import_grid(txtfile):
+def import_grid(filenametxt):
     board = []
-    with open(txtfile, 'r') as file:
+    with open(filenametxt, 'r') as file:
         for line in file:
             number_strings = line.split() # split the line of runs of whitespace
             numbers = [int(n) for n in number_strings] # convert to integers

@@ -28,7 +28,7 @@ def usage_and_exit():
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
 
-# Todo
+# import, solve and export sollution
 def import_sudoku(filenametxt):
     imported_grid = grids.import_grid(filenametxt)
     print(f"\nSudoku imported from: {filenametxt}:")
@@ -36,6 +36,8 @@ def import_sudoku(filenametxt):
     solved_grid = solver.solve(imported_grid)
     print(f"\nSollution:")
     grids.print_grid(solved_grid)
+    grids.export_grid("solved_sudoku.txt", solved_grid)
+
 # function to generate and export sudoku grid
 def generate_sudoku(number_zeros):
     try: 
@@ -55,7 +57,7 @@ def generate_sudoku(number_zeros):
     if solver.test_if_unique(board) == True:
         print("This grid has one valid solution.")
     else:
-        print("Warning! - Grid has multiple solutions, so it's no good.")
+        print("Warning! - Grid has multiple solutions, better try again.")
     
     # export generated grid to txt file
     grids.export_grid(f"generated_sudoku_with_{number_zeros}_emptycells.txt", board)
