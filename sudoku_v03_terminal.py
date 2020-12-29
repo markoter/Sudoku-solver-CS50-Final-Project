@@ -29,10 +29,13 @@ def usage_and_exit():
     exit(1)
 
 # Todo
-def import_sudoku(gridtxt):
-    imported_grid = grids.import_grid(gridtxt)
-    grids.print_grid(imported_grid)       
-
+def import_sudoku(filenametxt):
+    imported_grid = grids.import_grid(filenametxt)
+    print(f"\nSudoku imported from: {filenametxt}:")
+    grids.print_grid(imported_grid)    
+    solved_grid = solver.solve(imported_grid)
+    print(f"\nSollution:")
+    grids.print_grid(solved_grid)
 # function to generate and export sudoku grid
 def generate_sudoku(number_zeros):
     try: 

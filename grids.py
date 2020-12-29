@@ -68,8 +68,8 @@ def print_grid(board):
     print(" ----------------------------")
 
 # export sudoku grid to file.txt
-def export_grid(txtfile, board):
-    with open(txtfile, 'w') as file:
+def export_grid(filenametxt, board):
+    with open(filenametxt, 'w') as file:
         file.writelines(' '.join(str(j) for j in i) + '\n' for i in board)
 
 # import sudoku grid from file.txt
