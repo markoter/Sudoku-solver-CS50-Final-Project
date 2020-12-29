@@ -54,7 +54,7 @@ def create_grid():
         while True:
             line = (input(f"Write row {l+1}: "))
             if len(line) == 9:
-                # change string line into list if ints
+                # change string line into list of ints
                 line = list(map(int, line))
                 newgrid.append(line)
                 break
