@@ -24,7 +24,7 @@ def main():
 def usage_and_exit():
     print(" Usage:")
     print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it")
-    print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] - generate sudoku board and export it into file")
+    print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] [] - generate sudoku board and export it into file")
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
 
@@ -35,11 +35,12 @@ def import_sudoku(gridtxt):
 
 # function to generate and export sudoku grid
 def generate_sudoku(number_zeros):
-    number_zeros = int(number_zeros)
-
-    zero_board = grids.zgrid
-
-    board = solver.rnd_solve(zero_board)
+    try: 
+        number_zeros = int(number_zeros)
+    except:
+        print("Error ! - You should write int number in range (1,81)")
+        exit(1)
+    board = solver.rnd_solve(grids.zgrid)
 
     # if number_zeros not in range 0-81
     if solver.clean_cells(board, number_zeros) != 0:
