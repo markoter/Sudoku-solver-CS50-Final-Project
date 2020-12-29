@@ -73,8 +73,10 @@ def new_sudoku():
     grids.print_grid(new_grid)
     grids.export_grid("new_sudoku.txt", new_grid)
     # solve, print and export sollution
+    solving_start = time.time()
     solved_new_grid = solver.solve(new_grid)
-    print(f"\nSolved new sudoku grid:")
+    solving_time = (time.time() - solving_start)
+    print(f"\nSolved new sudoku grid (in {solving_time} seconds):")
     grids.print_grid(solved_new_grid)
     grids.export_grid("new_sudoku_sollution.txt", solved_new_grid)
 
