@@ -2,6 +2,26 @@ import solver, grids, random
 from sys import argv, exit
 print("***** Sudoku solver v0.3 terminal edition *****")
 
+
+
+# terminal 
+def main():
+    if len(argv) == 2:
+        if argv[1] == 'new':
+            print("TODO writing new board")
+        else:
+            usage_and_exit()
+    elif len(argv) == 3:
+        if (argv[1] == 'generate') and (argv[2] != False):
+            print("TODO generate new board with int empty spaces")
+        elif (argv[1] == 'import') and (argv[2] != False):
+            print("TODO import grid from file and solve it")
+            import_sudoku(argv[2])
+        else:
+            usage_and_exit()
+    else:
+        usage_and_exit()
+        
 def usage_and_exit():
     print(" Usage:")
     print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it")
@@ -9,27 +29,16 @@ def usage_and_exit():
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
 
+# Todo
 def import_sudoku(gridtxt):
     imported_grid = grids.import_grid(gridtxt)
     grids.print_grid(imported_grid)       
 
+# function to generate and export sudoku grid
+# def generate_sudoku()
 
-# terminal 
-if len(argv) == 2:
-    if argv[1] == 'new':
-        print("TODO writing new board")
-    else:
-        usage_and_exit()
-elif len(argv) == 3:
-    if (argv[1] == 'generate') and (argv[2] != False):
-        print("TODO generate new board with int empty spaces")
-    elif (argv[1] == 'import') and (argv[2] != False):
-        print("TODO import grid from file and solve it")
-        import_sudoku(argv[2])
-    else:
-        usage_and_exit()
-else:
-    usage_and_exit()
+# run main
+main()
 
 """
 # debug printer
