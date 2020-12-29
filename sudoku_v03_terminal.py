@@ -6,7 +6,7 @@ print("***** Sudoku solver v0.3 terminal edition *****")
 def main():
     if len(argv) == 2:
         if argv[1] == 'new':
-            print("TODO writing new board")
+            new_sudoku()
         else:
             usage_and_exit()
     elif len(argv) == 3:
@@ -65,8 +65,15 @@ def generate_sudoku(number_zeros):
 
 # function to write new sudoku right through terminal
 def new_sudoku():
-    
-    
+    new_grid = grids.create_grid()
+    print(f"\nGenerated sudoku grid:")
+    grids.print_grid(new_grid)
+    grids.export_grid("new_sudoku.txt", new_grid)
+    solved_new_grid = solver.solve(new_grid)
+    print(f"\nSolved new sudoku grid:")
+    grids.print_grid(new_grid)
+
+
 
 
 
