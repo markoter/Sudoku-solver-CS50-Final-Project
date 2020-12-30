@@ -24,10 +24,10 @@ def main():
 # function to call when wrong command       
 def usage_and_exit():
     print(" Usage:")
-    print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it")
-    print("  py sudoku_v03_terminal.py [check] [file.txt] - import sudoku board from file and check if it has one, unique sollution")
-    print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] [] - generate sudoku board and export it into file")
-    print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
+    print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it.")
+    print("  py sudoku_v03_terminal.py [check] [file.txt] - import sudoku board from file and check if it is valid (has one, unique sollution).")
+    print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] [] - generate sudoku board and export it into file.")
+    print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by the program.")
     exit(1)
 
 # import, solve and export sollution
@@ -100,17 +100,3 @@ def new_sudoku():
 
 # run main
 main()
-
-"""
-# debug printer
-print(f"Empty spots to fill: {len(solver.emptyList(grid))}")
-
-print("Sudoku solved with normal algorithm after changes:")
-newGrid = solver.solve(grid)
-grids.print_grid(newGrid)
-
-print("Sudoku solved with random algorithm after changes:")
-newRandomGrid = solver.rnd_solve(grid)
-grids.print_grid(newRandomGrid)
-'''
-"""
