@@ -26,7 +26,7 @@ def usage_and_exit():
     print(" Usage:")
     print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it.")
     print("  py sudoku_v03_terminal.py [check] [file.txt] - import sudoku board from file and check if it is valid (has one, unique sollution).")
-    print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] [] - generate sudoku board and export it into file.")
+    print("  py sudoku_v03_terminal.py [generate] [number of empty spots] [] - generate sudoku board with given number of empty spots (from 1 to 81) and export it into file.")
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by the program.")
     exit(1)
 
@@ -66,7 +66,10 @@ def generate_sudoku(number_zeros):
     try: 
         number_zeros = int(number_zeros)
     except:
-        print("Error ! - You should write int number in range (1,81)")
+        print("Error ! - [number of empty spots] - should be number from 1 to 81")
+        exit(1)
+    if number_zeros not in range(1,81):
+        print("Error ! - [number of empty spots] - should be number from 1 to 81")
         exit(1)
     board = solver.rnd_solve(grids.zgrid)
     # clean some cells
