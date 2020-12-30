@@ -75,9 +75,13 @@ def export_grid(filenametxt, board):
 # import sudoku grid from file.txt
 def import_grid(filenametxt):
     board = []
-    with open(filenametxt, 'r') as file:
-        for line in file:
-            number_strings = line.split() # split the line of runs of whitespace
-            numbers = [int(n) for n in number_strings] # convert to integers
-            board.append(numbers) # add the "row" to list
+    try:
+        with open(filenametxt, 'r') as file:
+            for line in file:
+                number_strings = line.split() # split the line of runs of whitespace
+                numbers = [int(n) for n in number_strings] # convert to integers
+                board.append(numbers) # add the "row" to list
+    except:
+        print(f'Error! - File "{filenametxt}" not found! ')
+        exit(1)
     return(board)

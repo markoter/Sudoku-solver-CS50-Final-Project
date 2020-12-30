@@ -10,12 +10,19 @@ def main():
         else:
             usage_and_exit()
     elif len(argv) == 3:
-        if (argv[1] == 'generate') and (argv[2] != False):
+        if (argv[1] == 'generate'):
             generate_sudoku(argv[2])
-        elif (argv[1] == 'import') and (argv[2] != False):
+        elif (argv[1] == 'import'):
             import_sudoku(argv[2])
-        elif (argv[1] == 'check') and (argv[2] != False):
+        elif (argv[1] == 'check'):
             check_sudoku(argv[2])
+        elif argv[1] == 'new':
+            new_sudoku(argv[2])
+        else:
+            usage_and_exit()
+    elif len(argv) == 4:
+        if (argv[1] == 'generate'):
+            generate_sudoku(argv[2],argv[3])
         else:
             usage_and_exit()
     else:
@@ -24,10 +31,10 @@ def main():
 # function to call when wrong command       
 def usage_and_exit():
     print(" Usage:")
-    print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it.")
-    print("  py sudoku_v03_terminal.py [check] [file.txt] - import sudoku board from file and check if it is valid (has one, unique sollution).")
-    print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] [] - generate sudoku board and export it into file.")
-    print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by the program.")
+    print("  py sudoku_v03_terminal.py [import] [filename.txt]\n   - import sudoku board from file and solve it.")
+    print("  py sudoku_v03_terminal.py [check] [filename.txt]\n   - import sudoku board from file and check if it is valid (has one, unique sollution).")
+    print("  py sudoku_v03_terminal.py [generate] [number of empty spots] [*optional_filename.txt]\n   - generate sudoku board with given number of empty spots (from 1 to 81) and export it into file.")
+    print("  py sudoku_v03_terminal.py [new] [*optional_filename.txt]\n   - write new sudoku board, line by line and export it to file.")
     exit(1)
 
 # import, solve and export sollution
@@ -62,11 +69,14 @@ def check_sudoku(filenametxt):
         print("This sudoku has at least 2 different sollutions, so it's not valid.")
 
 # function to generate and export sudoku grid
-def generate_sudoku(number_zeros):
+def generate_sudoku(number_zeros, filenametxt = "generated_sudoku.txt"):
     try: 
         number_zeros = int(number_zeros)
     except:
-        print("Error ! - You should write int number in range (1,81)")
+        print("Error ! - [number of empty spots] - should be number from 1 to 81")
+        exit(1)
+    if number_zeros not in range(1,81):
+        print("Error ! - [number of empty spots] - should be number from 1 to 81")
         exit(1)
     board = solver.rnd_solve(grids.zgrid)
     # clean some cells
@@ -80,23 +90,16 @@ def generate_sudoku(number_zeros):
     else:
         print("Warning! - Grid has multiple solutions, better try again.")
     # export generated grid to txt file
-    grids.export_grid(f"generated_sudoku_with_{number_zeros}_emptycells.txt", board)
+    grids.export_grid(filenametxt, board)
 
 # function to write new sudoku right through terminal
-def new_sudoku():
+def new_sudoku(filenametxt = "new_sudoku.txt"):
     # create new grid line by line by user
     new_grid = grids.create_grid()
     # print and export created grid
     print(f"\nGenerated sudoku grid:")
     grids.print_grid(new_grid)
-    grids.export_grid("new_sudoku.txt", new_grid)
-    # solve, print and export sollution
-    solving_start = time.time()
-    solved_new_grid = solver.solve(new_grid)
-    solving_time = (time.time() - solving_start)
-    print(f"\nSolved new sudoku grid (in {solving_time} seconds):")
-    grids.print_grid(solved_new_grid)
-    grids.export_grid("new_sudoku_sollution.txt", solved_new_grid)
+    grids.export_grid(filenametxt, new_grid)
 
 # run main
 main()
