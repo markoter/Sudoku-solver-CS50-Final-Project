@@ -13,8 +13,9 @@ def main():
         if (argv[1] == 'generate') and (argv[2] != False):
             generate_sudoku(argv[2])
         elif (argv[1] == 'import') and (argv[2] != False):
-            print("TODO import grid from file and solve it")
             import_sudoku(argv[2])
+        elif (argv[1] == 'check') and (argv[2] != False):
+            check_sudoku(argv[2])
         else:
             usage_and_exit()
     else:
@@ -24,6 +25,7 @@ def main():
 def usage_and_exit():
     print(" Usage:")
     print("  py sudoku_v03_terminal.py [import] [file.txt] - import sudoku board from file and solve it")
+    print("  py sudoku_v03_terminal.py [check] [file.txt] - import sudoku board from file and check if it has one, unique sollution")
     print("  py sudoku_v03_terminal.py [generate] [int (1 to 81)] [] - generate sudoku board and export it into file")
     print("  py sudoku_v03_terminal.py [new] - write new sudoku board, line by line to solve by program")
     exit(1)
@@ -42,6 +44,22 @@ def import_sudoku(filenametxt):
     print(f"\nSollution (in {solving_time} seconds):")
     grids.print_grid(solved_grid)
     grids.export_grid("imported_sudoku_sollution.txt", solved_grid)
+
+def check_sudoku(filenametxt):
+    # import
+    imported_grid = grids.import_grid(filenametxt)
+    # print imported grid
+    print(f"\nSudoku imported from: {filenametxt}:")
+    grids.print_grid(imported_grid) 
+    # solve, print and export sollution
+    solving_start = time.time()
+    is_unique = solved_grid = solver.test_if_unique(imported_grid)
+    solving_time = (time.time() - solving_start)
+    print(f"Checking sudoku took {solving_time} seconds.")
+    if is_unique == True:
+        print("This sudoku grid is probably valid (has only one sollution).")
+    else:
+        print("This sudoku has at least 2 different sollutions, so it's not valid.")
 
 # function to generate and export sudoku grid
 def generate_sudoku(number_zeros):
