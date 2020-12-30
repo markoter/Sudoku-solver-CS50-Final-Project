@@ -16,6 +16,8 @@ def main():
             import_sudoku(argv[2])
         elif (argv[1] == 'check'):
             check_sudoku(argv[2])
+        elif argv[1] == 'new':
+            new_sudoku(argv[2])
         else:
             usage_and_exit()
     elif len(argv) == 4:
@@ -32,7 +34,7 @@ def usage_and_exit():
     print("  py sudoku_v03_terminal.py [import] [filename.txt]\n   - import sudoku board from file and solve it.")
     print("  py sudoku_v03_terminal.py [check] [filename.txt]\n   - import sudoku board from file and check if it is valid (has one, unique sollution).")
     print("  py sudoku_v03_terminal.py [generate] [number of empty spots] [*optional_filename.txt]\n   - generate sudoku board with given number of empty spots (from 1 to 81) and export it into file.")
-    print("  py sudoku_v03_terminal.py [new]\n   - write new sudoku board, line by line to solve by the program.")
+    print("  py sudoku_v03_terminal.py [new] [*optional_filename.txt]\n   - write new sudoku board, line by line and export it to file.")
     exit(1)
 
 # import, solve and export sollution
@@ -91,20 +93,13 @@ def generate_sudoku(number_zeros, filenametxt = "generated_sudoku.txt"):
     grids.export_grid(filenametxt, board)
 
 # function to write new sudoku right through terminal
-def new_sudoku():
+def new_sudoku(filenametxt = "new_sudoku.txt"):
     # create new grid line by line by user
     new_grid = grids.create_grid()
     # print and export created grid
     print(f"\nGenerated sudoku grid:")
     grids.print_grid(new_grid)
-    grids.export_grid("new_sudoku.txt", new_grid)
-    # solve, print and export sollution
-    solving_start = time.time()
-    solved_new_grid = solver.solve(new_grid)
-    solving_time = (time.time() - solving_start)
-    print(f"\nSolved new sudoku grid (in {solving_time} seconds):")
-    grids.print_grid(solved_new_grid)
-    grids.export_grid("new_sudoku_sollution.txt", solved_new_grid)
+    grids.export_grid(filenametxt, new_grid)
 
 # run main
 main()
