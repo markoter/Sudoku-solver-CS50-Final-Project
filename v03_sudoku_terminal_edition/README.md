@@ -1,6 +1,6 @@
 Sudoku v0.3 Terminal Edition
     by markoter
-    Marek Wydra from Racibórz
+    Marek Wydra from Racibórz, Poland
 
 This is a simple command-line program to solve, generate, or check the uniqueness of the sudoku grid.
 The program has been written in Python and converted to a standalone exe version by py2exe. 
