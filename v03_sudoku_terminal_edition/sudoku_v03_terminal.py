@@ -32,9 +32,9 @@ def main():
 def usage_and_exit():
     print(" Usage:")
     print("  py sudoku_v03_terminal.py [import] [filename.txt]\n   - import sudoku board from file and solve it.")
-    print("  py sudoku_v03_terminal.py [check] [filename.txt]\n   - import sudoku board from file and check if it is valid (has one, unique sollution).")
-    print("  py sudoku_v03_terminal.py [generate] [number of empty spots] [*optional_filename.txt]\n   - generate sudoku board with given number of empty spots (from 1 to 81) and export it into file.")
-    print("  py sudoku_v03_terminal.py [new] [*optional_filename.txt]\n   - write new sudoku board, line by line and export it to file.")
+    print("  py sudoku_v03_terminal.py [check] [filename.txt]\n   - import sudoku board from file and check if it is valid (has one, unique solution).")
+    print("  py sudoku_v03_terminal.py [generate] [number_of_empty_spots] [*optional_filename.txt]\n   - generate a sudoku board with a given number of empty spots (from 1 to 81) and export it into a file.")
+    print("  py sudoku_v03_terminal.py [new] [*optional_filename.txt]\n   - write a new sudoku board, line by line, and export it to file.")
     exit(1)
 
 # import, solve and export sollution
@@ -64,9 +64,9 @@ def check_sudoku(filenametxt):
     solving_time = (time.time() - solving_start)
     print(f"Checking sudoku took {solving_time} seconds.")
     if is_unique == True:
-        print("This sudoku grid is probably valid (has only one sollution).")
+        print("This sudoku grid is probably valid (has only one solution).")
     else:
-        print("This sudoku has at least 2 different sollutions, so it's not valid.")
+        print("This sudoku has at least 2 different solutions, so it's not valid.")
 
 # function to generate and export sudoku grid
 def generate_sudoku(number_zeros, filenametxt = "generated_sudoku.txt"):
